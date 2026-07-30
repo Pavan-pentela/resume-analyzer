@@ -1,3 +1,7 @@
 streamlit
 pdfplumber
 google-generativeai
+python-dotenv
+git add requirements.txt
+git commit -m "Add python-dotenv to requirements"
+git push
