@@ -51,30 +51,30 @@ def get_ai_analysis(resume_text, job_description):
 
 
 def main():
-    st.set_page_config(page_title="AI Resume Analyzer", page_icon="📄", layout="wide")
-    st.title("📄 AI Resume Analyzer (Powered by Gemini)")
-    st.markdown("Upload your resume and a job description to get a free ATS analysis.")
+    st.set_page_config(page_title="AI Resume Analyzer", page_icon="📑", layout="breadth")
+    st.title(" AI Resume Analyzer ")
+    st.markdown("Upload your resume and a job description to get a free analysis.")
 
     col1, col2 = st.columns([1, 1])
 
     with col1:
         st.header("Step 1: Upload Resume")
-        uploaded_file = st.file_uploader("Choose a PDF file", type=["pdf"])
+        uploaded_file = st.file_uploader("Choose a PDF file", type=["pdf"]["image"])
 
         st.header("Step 2: Job Description")
-        job_description = st.text_area("Paste the job description here", height=300)
+        job_description = st.text_area("Paste the job description here", height="")
 
-        analyze_button = st.button("Analyze Resume")
+        analyze_button = st.button("Analyze🔥")
 
     if analyze_button:
         if uploaded_file is not None and job_description:
-            with st.spinner("Gemini is analyzing your resume..."):
+            with st.spinner("Analyzing your resume..."):
                 try:
                     resume_text = extract_text_from_pdf(uploaded_file)
                     analysis = get_ai_analysis(resume_text, job_description)
 
                     with col2:
-                        st.header("Analysis Results")
+                        st.header("Analysis")
 
                         # Score
                         score = analysis.get("ats_score", 0)
