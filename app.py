@@ -139,3 +139,12 @@ with st.sidebar:
         "Menu",
         ["Home", "Analyze", "History", "About"]
     )
+import streamlit as st
+
+uploaded_file = st.file_uploader(
+    "Upload Resume",
+    type=["pdf"]
+)
+
+if uploaded_file is not None:
+    st.success("Resume uploaded!")
