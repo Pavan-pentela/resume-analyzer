@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+import os
 import google.generativeai as genai
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
@@ -51,30 +52,30 @@ def get_ai_analysis(resume_text, job_description):
 
 
 def main():
-    st.set_page_config(page_title="AI Resume Analyzer", page_icon="📑", layout="breadth")
-    st.title(" AI Resume Analyzer ")
-    st.markdown("Upload your resume and a job description to get a free analysis.")
+    st.set_page_config(page_title="AI Resume Analyzer", page_icon="📄", layout="wide")
+    st.title("📄 AI Resume Analyzer (Powered by Gemini)")
+    st.markdown("Upload your resume and a job description to get a free ATS analysis.")
 
     col1, col2 = st.columns([1, 1])
 
     with col1:
         st.header("Step 1: Upload Resume")
-        uploaded_file = st.file_uploader("Choose a PDF file", type=["pdf"]["image"])
+        uploaded_file = st.file_uploader("Choose a PDF file", type=["pdf"])
 
         st.header("Step 2: Job Description")
-        job_description = st.text_area("Paste the job description here", height="")
+        job_description = st.text_area("Paste the job description here", height=300)
 
-        analyze_button = st.button("Analyze🔥")
+        analyze_button = st.button("Analyze Resume")
 
     if analyze_button:
         if uploaded_file is not None and job_description:
-            with st.spinner("Analyzing your resume..."):
+            with st.spinner("Gemini is analyzing your resume..."):
                 try:
                     resume_text = extract_text_from_pdf(uploaded_file)
                     analysis = get_ai_analysis(resume_text, job_description)
 
                     with col2:
-                        st.header("Analysis")
+                        st.header("Analysis Results")
 
                         # Score
                         score = analysis.get("ats_score", 0)
