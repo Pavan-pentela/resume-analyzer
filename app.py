@@ -16,7 +16,11 @@ model = genai.GenerativeModel('gemini-2.5-flash')
 model = genai.GenerativeModel('gemini-3.6-flash')
 model = genai.GenerativeModel('gemini-3.5-flash-lite')
 
+import tkinter as tk
 
+ModuleNotFoundError:
+import _tkinter
+If this fails your Python may not be configured for Tk
 def extract_text_from_pdf(file):
     text = ""
     with pdfplumber.open(file) as pdf:
