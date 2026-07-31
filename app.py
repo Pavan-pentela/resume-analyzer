@@ -14,6 +14,7 @@ import google.generativeai as genai
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 model = genai.GenerativeModel('gemini-2.5-flash')
 model = genai.GenerativeModel('gemini-3.6-flash')
+model = genai.GenerativeModel('gemini-3.5-flash-lite')
 
 
 def extract_text_from_pdf(file):
