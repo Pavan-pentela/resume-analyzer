@@ -117,3 +117,16 @@ import os
 load_dotenv()
 
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
+import tkinter as tk
+
+root = tk.Tk()
+root.title("Student Management")
+root.geometry("500x400")
+
+label = tk.Label(root, text="Welcome", font=("Arial", 18))
+label.pack(pady=20)
+
+button = tk.Button(root, text="Submit")
+button.pack()
+
+root.mainloop()
