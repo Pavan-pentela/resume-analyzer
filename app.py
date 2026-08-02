@@ -120,7 +120,7 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 
 with st.sidebar:
-    st.image("logo.png", width=120)
+
     st.title("AI Resume Analyzer")
 
     option = st.radio(
